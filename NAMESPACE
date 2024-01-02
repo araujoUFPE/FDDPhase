@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+export("dFuncLeeEq5")
+export("dFuncGierullEq7")
+export("dTruncNorm")
+export("dTruncCauchy")
+
