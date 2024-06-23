@@ -30,8 +30,8 @@ The correct phase pdf is derived using identity tables for GHF.
 }
 \examples{
 sample <- seq(-pi,pi, 0.001)
-param <- c(r = 0.7, theta = 0, L = 5.2)
-data<-data.frame(x=sample,y=dFuncLeeEq5(sample, param))
+param <- c(r = 0.7, theta = 0, L = 5)
+data<-data.frame(x=sample,y=dFuncGierullEq7(sample, param))
 ggplot(data,aes(x,y)) +
 geom_line() +
 xlab("sample") +
