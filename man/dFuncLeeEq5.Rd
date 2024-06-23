@@ -29,15 +29,17 @@ Multilook probability density function for phase difference
 }
 \examples{
 sample <- seq(-pi,pi, 0.001)
-param <- c(r = 0.7, theta = 0, L = 4)
+param <- c(r = 0.7, theta = 0, L = 5.2)
 data<-data.frame(x=sample,y=dFuncLeeEq5(sample, param))
 ggplot(data,aes(x,y)) +
-  geom_line() +
-  xlim(-pi, pi) +
-  # coord_polar() +
-  xlab("sample") +
-  ylab("density") +
-  theme_pander()
+geom_line() +
+xlab("sample") +
+ylab("density") +
+scale_x_continuous (breaks = c(-pi, -pi/2, 0, pi/2, pi),
+labels = c(expression(-pi), expression(-pi/2), expression(0),
+expression(pi/2), expression(pi)))+ theme(legend.position = "none",
+axis.title.x = element_text(size = 12),
+axis.title.y = element_text(size = 12))
 }
 \author{
 Araújoo, J. E.
