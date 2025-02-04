@@ -270,10 +270,11 @@ dTruncNorm <- function(x, param){
 #' @export
 estim.LeeEq5 <- function(sample, param){
   LogLikelihoodLeeEq5 <- function(param){
-    return(
-      sum(log(dFuncLeeEq5(sample, param))))
+    return(sum(log(dFuncLeeEq5(sample, param))))
   }
-  return(maxLik(LogLikelihoodLeeEq5, start = param, fixed = "L"))
+  # Estimation with constraint
+  result <- maxLik(LogLikelihoodLeeEq5, start = param, fixed = c("theta", "L"))
+  return(result)
 }
 
 ################################ dFuncGierullEq7 ###############################
@@ -298,12 +299,13 @@ estim.LeeEq5 <- function(sample, param){
 #' summary(mle.Gierull)
 #'
 #' @export
-estim.GierullEq7 <- function(sample, param){
-  LogLikelihoodGierullEq7 <- function(param){
-    return(
-      sum(log(dFuncGierullEq7(sample, param))))
+estim.GierullEq7 <- function(sample, param) {
+  LogLikelihoodGierullEq7 <- function(param) {
+    return(sum(log(dFuncGierullEq7(sample, param))))
   }
-  return(maxLik(LogLikelihoodGierullEq7, start = param, fixed = "L"))
+  # Estimation with constraint
+  result <- maxLik(LogLikelihoodGierullEq7, start = param, fixed = c("theta", "L"))
+  return(result)
 }
 
 ################################ dTruncCauchy ##################################
